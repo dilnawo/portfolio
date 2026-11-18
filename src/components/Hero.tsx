@@ -1,9 +1,11 @@
 
 import { motion } from "framer-motion";
+import profile from "../assets/profile-transparent.png";
+
 import {
   ArrowUpRight,
   Download,
-   BriefcaseBusiness,
+  BriefcaseBusiness,
   Mail,
   Code2,
   Cpu,
@@ -89,30 +91,40 @@ const Hero = () => {
           </div>
 
           <div className="mt-9 flex gap-5">
-            <a href="https://github.com/" target="_blank"
-              rel="noreferrer" aria-label="GitHub"
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
               className="rounded-full border border-purple-400/30
-              p-3 text-purple-300 transition hover:bg-purple-600">
+              p-3 text-purple-300 transition hover:bg-purple-600"
+            >
               <Code2 size={21} />
             </a>
 
-            <a href="https://linkedin.com/" target="_blank"
-              rel="noreferrer" aria-label="LinkedIn"
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
               className="rounded-full border border-purple-400/30
-              p-3 text-purple-300 transition hover:bg-purple-600">
-             <BriefcaseBusiness size={21} />
+              p-3 text-purple-300 transition hover:bg-purple-600"
+            >
+              <BriefcaseBusiness size={21} />
             </a>
 
-            <a href="mailto:your-email@example.com"
+            <a
+              href="mailto:your-email@example.com"
               aria-label="Email"
               className="rounded-full border border-purple-400/30
-              p-3 text-purple-300 transition hover:bg-purple-600">
+              p-3 text-purple-300 transition hover:bg-purple-600"
+            >
               <Mail size={21} />
             </a>
           </div>
         </motion.div>
 
-        {/* Right Visual */}
+        {/* Right Content - Profile Photo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -120,62 +132,69 @@ const Hero = () => {
           className="relative mx-auto flex aspect-square
           w-full max-w-md items-center justify-center"
         >
-          <div className="absolute inset-8 rounded-full
-          border border-purple-400/30 shadow-[0_0_80px_rgba(168,85,247,0.15)]" />
+          {/* Outer orbit */}
+          <div className="absolute inset-5 rounded-full
+          border border-dashed border-purple-400/30" />
 
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity,
-              ease: "linear" }}
-            className="absolute inset-0 rounded-full
-            border border-dashed border-purple-400/30"
-          />
+          {/* Inner orbit */}
+          <div className="absolute inset-12 rounded-full
+          border border-purple-400/30
+          shadow-[0_0_80px_rgba(168,85,247,0.15)]" />
 
-          <div className="absolute h-64 w-64 rounded-full
-          bg-gradient-to-br from-purple-500/30
-          to-fuchsia-600/10 blur-3xl" />
+          {/* Purple glow */}
+          <div className="absolute h-80 w-80 rounded-full
+          bg-purple-600/20 blur-[90px]" />
 
-          <div className="relative z-10 flex h-64 w-64
-          flex-col items-center justify-center rounded-full
-          border border-purple-300/40 bg-[#160d27]/80
-          shadow-[0_0_60px_rgba(168,85,247,0.25)]">
+          {/* Profile photo */}
+         <div className="relative z-10 flex items-end justify-center
+  transition duration-500 hover:scale-105
+  drop-shadow-[0_0_35px_rgba(168,85,247,0.25)]">
 
-            <span className="text-7xl font-bold
-            text-purple-300">DN</span>
+            <img
+              src={profile}
+              alt="Dilki Nawodya - IT Undergraduate and Developer"
+              className="h-[360px] w-[280px] object-cover
+              object-top"
+            />
 
-            <span className="mt-3 text-xs tracking-[0.3em]
-            text-gray-400">DEVELOPER</span>
           </div>
 
+          {/* Floating Code Icon */}
           <motion.div
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="absolute right-5 top-10 rounded-2xl
-            border border-purple-400/30 bg-[#1b1230]
-            p-4 text-purple-300 shadow-xl shadow-purple-500/20"
+            className="absolute right-2 top-12 z-20
+            rounded-2xl border border-purple-400/30
+            bg-[#1b1230] p-4 text-purple-300
+            shadow-xl shadow-purple-500/20"
           >
             <Code2 size={30} />
           </motion.div>
 
+          {/* Floating CPU Icon */}
           <motion.div
             animate={{ y: [10, -10, 10] }}
             transition={{ duration: 5, repeat: Infinity }}
-            className="absolute bottom-16 left-2 rounded-2xl
-            border border-purple-400/30 bg-[#1b1230]
-            p-4 text-purple-300 shadow-xl shadow-purple-500/20"
+            className="absolute bottom-16 left-0 z-20
+            rounded-2xl border border-purple-400/30
+            bg-[#1b1230] p-4 text-purple-300
+            shadow-xl shadow-purple-500/20"
           >
             <Cpu size={30} />
           </motion.div>
 
+          {/* Floating Laptop Icon */}
           <motion.div
             animate={{ y: [-8, 8, -8] }}
             transition={{ duration: 4.5, repeat: Infinity }}
-            className="absolute bottom-10 right-8 rounded-2xl
-            border border-purple-400/30 bg-[#1b1230]
-            p-4 text-purple-300 shadow-xl shadow-purple-500/20"
+            className="absolute bottom-10 right-2 z-20
+            rounded-2xl border border-purple-400/30
+            bg-[#1b1230] p-4 text-purple-300
+            shadow-xl shadow-purple-500/20"
           >
             <Laptop size={30} />
           </motion.div>
+
         </motion.div>
       </div>
     </section>
